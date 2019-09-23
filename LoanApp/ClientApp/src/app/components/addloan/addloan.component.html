@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+</head>
+<body>
+  <h1>{{title}}</h1>
+  <h3>Loans</h3>
+  <hr />
+  <form [formGroup]="loansForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
+
+    <div class="form-group row">
+      <label class=" control-label col-md-12">Loaner ID</label>
+      <div class="col-md-6">
+        <input class="form-control" type="number" formControlName="loaner">
+      </div>
+      <span class="text-danger" *ngIf="loaner.invalid && formDir.submitted">
+        Loaner ID is required.
+      </span>
+    </div>
+
+    <div class="form-group row">
+      <label class=" control-label col-md-12">Borrower ID</label>
+      <div class="col-md-6">
+        <input class="form-control" type="number" formControlName="borrower">
+      </div>
+      <span class="text-danger" *ngIf="borrower.invalid && formDir.submitted">
+        Borrower ID is required.
+      </span>
+    </div>
+
+    <div class="form-group row">
+      <label class=" control-label col-md-12">Amount</label>
+      <div class="col-md-6">
+        <input class="form-control" type="number" formControlName="amount">
+      </div>
+      <span class="text-danger" *ngIf="amount.invalid && formDir.submitted">
+        Amount is required.
+      </span>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-default">Save</button>
+      <button class="btn" (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+</body>
+</html>

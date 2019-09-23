@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+</head>
+<body>
+  <h1>Loans Data</h1>
+
+  <p>This component demonstrates fetching Loans data from the server.</p>
+
+  <p *ngIf="!lonList"><em>Loading...</em></p>
+
+  <p>
+    <a [routerLink]="['/register-loans']">Create New</a>
+  </p>
+
+  <table class='table' *ngIf="lonList">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Loaner ID</th>
+        <th>Borrower ID</th>
+        <th>Amount</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let lon of lonList">
+      <td>{{ lon.id }}</td> 
+      <td>{{ lon.loaner }}</td>
+      <td>{{ lon.borrower }}</td>
+      <td>{{ lon.amount }}</td>
+      <td>
+    </tr>
+    </tbody>
+  </table>
+</body>
+</html>
